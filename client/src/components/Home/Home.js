@@ -4,9 +4,11 @@ import Form from '../Form/form';
 import Posts from '../Posts/posts';
 import { getPosts } from '../../actions/posts';
 import { useDispatch } from 'react-redux'
+import makeStyles from './styles'
 
 
 const Home = () => {
+  const classes = makeStyles();
     const [currentId, setCurrentId] = useState(null);
     const dispatch = useDispatch();
 
@@ -19,11 +21,11 @@ const Home = () => {
     
          <Grow in>
                 <Container>
-                    <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+                    <Grid  container className={classes.mainContainer} justifyContent="space-between" alignItems="stretch" spacing={3}>
                     <Grid item xs={12} sm={7}>
                       <Posts setCurrentId={setCurrentId} />
                       </Grid>
-                    <Grid item xs={12} sm={4}>
+                    <Grid  item xs={12} sm={4}>
                       <Form currentId={currentId} setCurrentId={setCurrentId} />
                       </Grid>
                     </Grid>
